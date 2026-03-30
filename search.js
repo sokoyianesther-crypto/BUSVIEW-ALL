@@ -14,7 +14,7 @@ const mostSeatsDiv = document.getElementById("mostSeats");
 
 // ---------------- CONFIG ---------------- //
 // Change this to your Render backend URL
-const BACKEND_URL = "https://sokky-backend-school-project.onrender.com";
+const BACKEND_URL = "https://sokky-backend-school-project-1.onrender.com";
 
 // ---------------- FETCH FUNCTION ---------------- //
 async function fetchBuses() {
