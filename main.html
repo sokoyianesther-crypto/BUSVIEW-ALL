@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BUS VIEW</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8f9ff;
+    color:#333;
+}
+
+a, h1, h2, h3, p, .card, button {
+    user-select:none;
+}
+
+input {
+    cursor:text;
+}
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:#4b0082;
+    position:fixed;
+    width:100%;
+    z-index:1000;
+}
+
+nav h2{
+    color:white;
+    font-weight:700;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    margin-left:25px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ffd6ff;
+}
+
+/* GENERAL SECTION */
+section{
+    padding:120px 60px 80px 60px;
+}
+
+section h1{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:20px;
+    color:#4b0082;
+    position:relative;
+}
+
+section h1::after{
+    content:"";
+    width:80px;
+    height:4px;
+    background:#c77dff;
+    display:block;
+    margin:10px auto;
+    border-radius:5px;
+}
+
+/* HERO */
+#home{
+    height:100vh;
+    background:linear-gradient(rgba(77,26,114,0.274),rgba(83,45,110,0.397)),
+               url("images/Safe Travels.jpeg") center/cover no-repeat;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+#home h1{
+    font-size:50px;
+    color:white;
+    -webkit-text-stroke-width:2px;
+    -webkit-text-stroke-color:#1d0133;
+}
+
+#home p{
+    margin-bottom:60px;
+    font-size:25px;
+    color:#1d0133;
+    font-weight:bold;
+}
+
+/* SEARCH */
+.search-box{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.search-box input{
+    padding:15px;
+    border:none;
+    border-radius:8px;
+    width:220px;
+}
+
+.date-wrapper{
+    position:relative;
+}
+
+.date-wrapper i{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#4b0082;
+}
+
+.date-wrapper input{
+    padding-left:45px;
+}
+
+.search-box button{
+    padding:15px 30px;
+    border:none;
+    border-radius:8px;
+    background:#1d0133;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.search-box button:hover{
+    background:#7b2cbf;
+    transform:scale(1.05);
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.4s;
+    text-align:center;
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:20px;
+    color:#4b0082;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+/* FEATURES */
+#features{
+    background:#f3e8ff;
+}
+
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    margin-top:50px;
+}
+
+.feature-card{
+    background:white;
+    padding:40px 30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.feature-card i{
+    font-size:40px;
+    margin-bottom:20px;
+    color:#7b2cbf;
+}
+
+.feature-card:hover{
+    transform:translateY(-12px);
+}
+
+/* FOOTER */
+footer{
+    background:#4b0082;
+    color:white;
+    padding:50px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+footer a{
+    display:block;
+    text-decoration:none;
+    color:#ddd;
+    margin-bottom:8px;
+}
+
+footer a:hover{
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>BUS VIEW</h2>
+    <div>
+        <a href="#"><i class="fa fa-home"></i></a>
+        <a href="#buses">BUSES</a>
+        <a href="#features">WHY US?</a>
+        <a href="#destinations">DESTINATIONS</a>
+        
+    </div>
+</nav>
+
+<section id="home">
+    <h1>Find Available Buses</h1>
+    <p>Search buses by route and explore pricing, class and resources.</p>
+
+    <form class="search-box" action="search.html" method="GET">
+        <input type="text" name="from" placeholder="From" required>
+        <input type="text" name="to" placeholder="To" required>
+
+        <div class="date-wrapper">
+            <i class="fa-regular fa-calendar"></i>
+            <input type="date" name="date" required>
+        </div>
+        <button type="submit">Search</button>
+    </form>
+</section>
+
+<section id="buses">
+    <h1>Available Bus Companies</h1>
+    <div class="grid"> 
+        <div class="card"><img src="images/Mash-POA COPY.jpg"><h3>MASH POA</h3></div> 
+        <div class="card"><img src="images/Tahmeed.jpg"><h3>TAHMEED</h3></div> 
+        <div class="card"><img src="images/Transline.jpg"><h3>TRANSLINE</h3></div> 
+        <div class="card"><img src="images/simba.jpg"><h3>SIMBA COACH</h3></div> 
+        <div class="card"><img src="images/easycoach.jpeg"><h3>EASY COACH</h3></div> 
+        <div class="card"><img src="images/Ena.jpeg"><h3>ENA COACH</h3></div> 
+        <div class="card"><img src="images/Bus-car.jpeg"><h3>BUS CAR</h3></div> 
+        <div class="card"><img src="images/Climax.jpeg"><h3>CLIMAX COACHES</h3></div> 
+        <div class="card"><img src="images/Guardian.jpeg"><h3>GUARDIAN ANGEL</h3></div> 
+        <div class="card"><img src="images/Horizon.jpg"><h3>HORIZON</h3></div> 
+        <div class="card"><img src="images/Dreamline1.jpeg"><h3>DREAMLINE</h3></div> 
+        <div class="card"><img src="images/Rayan.jpeg"><h3>RAYAN</h3></div> 
+    </div>
+</section>
+
+<section id="features">
+    <h1>Why Choose BUS VIEW?</h1>
+    <div class="features-grid">
+        <div class="feature-card">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Convenience</h3>
+            <p>Quickly explore available buses and routes easily.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fa-solid fa-headset"></i>
+            <h3>Great Customer Care</h3>
+            <p>Reliable transport partners focused on satisfaction.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Safe & Reliable</h3>
+            <p>Verified bus companies and trusted travel routes.</p>
+        </div>
+    </div>
+</section>
+
+<section id="destinations">
+    <h1>Top Destinations</h1>
+    <div class="grid"> 
+        <div class="card"><img src="images/mombasa.jpg"><h3>MOMBASA</h3></div>
+        <div class="card"><img src="images/Kisumu1.jpg"><h3>KISUMU</h3></div> 
+        <div class="card"><img src="images/Eldoret.jpg"><h3>ELDORET</h3></div> 
+        <div class="card"><img src="images/migori.jpg"><h3>MIGORI</h3></div> 
+        <div class="card"><img src="images/kakamega.jpg"><h3>KAKAMEGA</h3></div> 
+        <div class="card"><img src="images/kitale.jpg"><h3>KITALE</h3></div> 
+        <div class="card"><img src="images/malindi.jpg"><h3>MALINDI</h3></div> 
+        <div class="card"><img src="images/Mtwapa.jpeg"><h3>MTWAPA</h3></div> 
+        <div class="card"><img src="images/siaya.jpg"><h3>SIAYA</h3></div> 
+        <div class="card"><img src="images/Nakuru.jpg"><h3>NAKURU</h3></div> 
+        <div class="card"><img src="images/Nairobi.jpg"><h3>NAIROBI</h3></div>
+        <div class="card"><img src="images/Naivasha.jpeg"><h3>NAIVASHA</h3></div>  
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h3>Social Media</h3>
+            <a href="https://www.instagram.com/">Instagram</a>
+            <a href="https://x.com/">Twitter</a>
+            <a href="https://www.facebook.com/">Facebook</a>
+        </div>
+        <div>
+            <h3>Top Routes</h3>
+            <a href="#">Nairobi - Nakuru</a>
+            <a href="#">Nairobi - Kisumu</a>
+            <a href="#">Nairobi - Mombasa</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
